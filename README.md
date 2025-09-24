@@ -43,4 +43,15 @@ Where:
 - **PD** = Probability of Default (from model)
 - **EAD** = Exposure at Default (loan amount)
 - **LGD** = Loss Given Default (fixed at 90%)
+  ---
+
+## Dependencies
+
+-python
+-pandas
+-numpy
+-scikit-learn
+-matplotlib
+
+---
 
