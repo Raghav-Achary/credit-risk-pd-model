@@ -13,9 +13,7 @@ Retail banking has been experiencing higher-than-expected personal loan defaults
 - Predict the **likelihood of default** for each borrower.
 - Estimate **expected loss** using:
   
-  \[
-  {Expected Loss (EL)} = \text{Probability of Default (PD)} \times (1 - \text{Recovery Rate}) \times \text{Loan Amount}
-  \]
+ Expected Loss (EL)=Probability of Default (PD)×(1−Recovery Rate)×Loan Amount
 
 ---
 
