@@ -1,6 +1,6 @@
 # credit risk pd model
 
-This project builds a machine learning model to predict the **Probability of Default (PD)** for retail banking customers. It also calculates the **Expected Loss (EL)** assuming a 90% Loss Given Default (i.e., 10% recovery rate).
+This project builds a machine learning model to predict the **Probability of Default (PD)** for retail banking customers. It also calculates the **Expected Loss (EL)**  
 
 ---
 
@@ -42,7 +42,7 @@ Expected Loss = PD × EAD × LGD
 Where:
 - **PD** = Probability of Default (from model)
 - **EAD** = Exposure at Default (loan amount)
-- **LGD** = Loss Given Default (fixed at 90%)
+- **LGD** = Loss Given Default 
   ---
 
 ## Dependencies
