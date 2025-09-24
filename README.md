@@ -1,81 +1,46 @@
-# Loan Default Prediction Model
+# credit risk pd model
 
-This project is a prototype predictive model designed to estimate the **probability of default (PD)** for retail banking customers with outstanding personal loans. It also calculates the **expected loss (EL)** on a loan, assuming a recovery rate of 10%.
-
-This model assists risk teams in assessing potential loan losses, helping inform capital reserves and lending decisions.
+This project builds a machine learning model to predict the **Probability of Default (PD)** for retail banking customers. It also calculates the **Expected Loss (EL)** assuming a 90% Loss Given Default (i.e., 10% recovery rate).
 
 ---
 
-## 📊 Problem Statement
+## 📂 Dataset Overview
 
-Retail banking has been experiencing higher-than-expected personal loan defaults. To proactively manage credit risk, we aim to:
+The dataset includes anonymized borrower-level features:
 
-- Predict the **likelihood of default** for each borrower.
-- Estimate **expected loss** using:
-  
- Expected Loss (EL)=Probability of Default (PD)×(1−Recovery Rate)×Loan Amount
-
----
-
-## 🧮 Dataset
-
-The dataset includes borrower-level data with the following features:
-
-- `credit_lines_outstanding`
-- `loan_amt_outstanding`
-- `total_debt_outstanding`
-- `income`
-- `years_employed`
-- `fico_score`
-- `default` (target variable: 1 if defaulted, else 0)
-
-Additional engineered features:
-
-- `payment_to_income` = loan_amt_outstanding / income
-- `debt_to_income` = total_debt_outstanding / income
+- Credit lines outstanding
+- Loan amount outstanding
+- Total debt outstanding
+- Income
+- Years employed
+- FICO score
+- Target variable: `default` (1 if borrower defaulted)
 
 ---
 
-## 🔧 Approach
+## 🚀 Project Workflow
 
-- **Model**: Logistic Regression (using scikit-learn)
-- **Target**: Binary classification (`default`: 0 or 1)
-- **Feature Engineering**:
-  - Created meaningful financial ratios to capture borrower stress.
-- **Evaluation**:
-  - ROC-AUC
-  - Accuracy
-  - Confusion matrix (optional)
+### 1. Data Exploration
+- Checked missing values, class balance, basic statistics.
 
----
+### 2. Feature Selection
+- Selected key borrower financial indicators.
+- No categorical variables in this dataset.
 
-## 🧪 Sample Output
+### 3. Model Training
+- Trained both:
+  - Logistic Regression (scaled)
+  - Random Forest (no scaling needed)
+- Evaluated using ROC AUC score.
 
-The model produces:
+### 4. Feature Importance
+- Random Forest feature importances plotted to understand key drivers.
 
-- **Probability of default (PD)** for each borrower
-- **Expected Loss (EL)** based on the formula
-
----
-
-## 📦 Files in this Repository
-
-| File | Description |
-|------|-------------|
-| `loan_default_model.py` | Main script to train and test the model |
-| `loan_data_sample.csv` | Sample dataset (anonymized) |
-| `expected_loss_function.py` | Function to calculate expected loss for a given borrower |
-| `README.md` | This file |
-
----
-
-## 🛠️ Tools & Libraries
-
-- Python 3.8+
-- `pandas`, `numpy`
-- `scikit-learn`
-- `matplotlib`, `seaborn` (for optional visualizations)
-
----
-
+### 5. Expected Loss Calculation
+- Used the formula:
+Expected Loss = PD × EAD × LGD
+Where:
+- **PD** = Probability of Default (from model)
+- **EAD** = Exposure at Default (loan amount)
+- **LGD** = Loss Given Default (fixed at 90%)
 
